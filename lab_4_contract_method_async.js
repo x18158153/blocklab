@@ -270,12 +270,25 @@ const contract = new web3.eth.Contract(abi, address)
 
 const getSymbol = async() => {
   let symbol = await contract.methods.symbol().call()
-return 'symbol is: ' + symbol
+return  symbol
+}
+
+const getName = async()=> {
+    let name = await contract.methods.name().call()
+    return name
+}
+
+const getDecimal  = async()=> {
+    let decimals = await contract.methods.decimals().call()
+    return decimals
 
 }
 
+
 const returnValues = async() => {
-    console.log(await getSymbol())
+    console.log('symbol is ' + await getSymbol())
+    console.log('name is ' + await getName())
+    console.log('decimal are  ' + await getDecimal())
 }
 
 returnValues()
