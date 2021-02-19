@@ -288,11 +288,19 @@ const getBalanceOf = async(owner) => {
     return balanceOf
 }
 
+const getTotalSupply = async() => {
+    let totalSupply =await contract.methods.totalSupply().call()
+    return totalSupply
+}
+
 const returnValues = async() => {
-    console.log('symbol is ' + await getSymbol())
+    let symbol = await getSymbol()
+    console.log('symbol is ' + symbol)
+    console.log('symbol is %s' , symbol)
     console.log('name is ' + await getName())
     console.log('decimal are  ' + await getDecimal())
     console.log('balance of ' + owner + ' is: ' + await getBalanceOf(owner))
+    console.log('total supply of %s is %s', symbol, await getTotalSupply())
 }
 
 returnValues()
