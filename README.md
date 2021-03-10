@@ -14,3 +14,5 @@ To install the dependencies, make sure you are in the blocklab folder to run:
 npm install
 
 npm i web3
+
+npm i ethereumjs-tx
