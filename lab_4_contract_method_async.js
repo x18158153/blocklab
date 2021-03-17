@@ -261,7 +261,7 @@ const abi= [
 ]
 
 //this is your contract address
-const address = "0xb2d4c706b76bd1FCb151624F1C5ed51cc7b02392" 
+const address = "0xDE236E3aD8b8BCC7E0aB88A10CBE8a8Eb44fb09d" 
 
 //this is the contract owner
 const owner = "0xB2Ee3F22D6AeFF1a870aAda0750474C070111C13"
@@ -301,6 +301,7 @@ const returnValues = async() => {
     console.log('decimal are  ' + await getDecimal())
     console.log('balance of ' + owner + ' is: ' + await getBalanceOf(owner))
     console.log('total supply of %s is %s', symbol, await getTotalSupply())
+	console.log('Luiz has: %s %s ',await getBalanceOf('0xED412a4BdE84C64eF2c0854a77858A53161911f7'), symbol)
 }
 
 returnValues()
