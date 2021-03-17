@@ -36,7 +36,7 @@ const transferFunds = async( account1, account2, amount)=> {
         gasLimit: web3.utils.toHex(21000),
         gasPrice: web3.utils.toHex(web3.utils.toWei('130', 'gwei')),
         to: account2,
-        value: web3.utils.toHex(web.utils.toWei(amount, 'either')),
+        value: web3.utils.toHex(web3.utils.toWei(amount, 'ether')),
     }
 
     const tx = new Tx(txObject, {chain:'ropsten', hardfork:'petersburg'})
@@ -45,8 +45,10 @@ const transferFunds = async( account1, account2, amount)=> {
     const serializedTX =tx.serialize()
     const raw = '0x' + serializedTX.toString('hex')
     let txHash = await sendTransaction(raw)
-    console.log("err: " + txHash.err)
-    console.log("transaction hash: " +txHash.txHash)
+    console.log('original object: ' + txHash)
+    //console.log("err: " + txHash.err)
+    console.log("transaction hash: " +txHash.transactionHash)
+    console.log("transaction in block " + txHash.blockNumber)
 
 }
  
