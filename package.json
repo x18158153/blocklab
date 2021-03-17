@@ -1,0 +1,27 @@
+{
+  "name": "blocklab",
+  "version": "1.0.0",
+  "description": "to download this code, run",
+  "main": "lab4_transaction_asyn.js",
+  "dependencies": {
+    "ethereumjs-tx": "^2.1.2",
+    "i": "^0.3.6",
+    "node": "^15.10.0",
+    "web3": "^1.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x18158153/blocklab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/x18158153/blocklab/issues"
+  },
+  "homepage": "https://github.com/x18158153/blocklab#readme"
+}
