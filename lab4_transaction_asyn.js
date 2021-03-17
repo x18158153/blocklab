@@ -16,5 +16,43 @@ const privatekey2 = Buffer.from('637e7f44be65928d2fe36e5f46cc3e338d40aef9c4825d1
 //using a mecanisim taking 128 randomness and making  derivation path : m’/44’/60’/0’/0/0 -> make the same public/private keypair
 //Ethereum takes the public key -> hashed/choooed -> eth address
 
-
+const sendTransaction = async(raw) => {
+    return await web3.eth.sendSignedTransaction(raw)
+}
  
+const transferFunds = async( account1, account2, amount)=> {
+
+    // the nonce - what is it?
+    // the nonce is the transaction counter from a particular address
+    // it is important to stop replay transactions , transactions it must run in order
+
+    let txCount = await web3.eth.getTransactionCount(account1)
+
+    console.log("txCount returned " + txCount)
+
+    //create a transaction object
+    const txObject = {
+        nonce: web3.utils.toHex(txCount),
+        gasLimit: web3.utils.toHex(21000),
+        gasPrice: web3.utils.toHex(web3.utils.toWei('130', 'gwei')),
+        to: account2,
+        value: web3.utils.toHex(web.utils.toWei(amount, 'either')),
+    }
+
+    const tx = new Tx(txObject, {chain:'ropsten', hardfork:'petersburg'})
+    tx.sign(privateKey1)
+
+    const serializedTX =tx.serialize()
+    const raw = '0x' + serializedTX.toString('hex')
+    let txHash = await sendTransaction(raw)
+    console.log("err: " + txHash.err)
+    console.log("transaction hash: " +txHash.txHash)
+
+}
+ 
+const transfer = async() => {
+await transferFunds(account1, account2, '0.123')
+
+}
+
+transfer()
