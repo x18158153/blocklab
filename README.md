@@ -1,19 +1,15 @@
-# blocklab
-
-### downloading the code ###
-
-to download this code, run
-
-```$git clone https://github.com/x18158153/blocklab.git```
+hey, this is the readme.md file
 
 
-this will create a folde called blocklab and the code will be donwloaded to that folder
+### Downloading the Code ###
 
-To install the dependencies, make sure you are in the blocklab folder to run:
+To download this code, run 
 
-```npm install```
+```$git clone https://github.com/eoinco/nci2021.git```
 
-```npm i web3```
+This will create a folder called nci2021 and the code will be downloaded to that folder.
 
-```npm i ethereumjs-tx```
+To install the dependencies, make sure you are in the nci2021 folder and run:
+
+```$npm install```
 
