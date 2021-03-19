@@ -321,7 +321,7 @@ const transfer = async() => {
   await getBalanceOf(account1)
   await getBalanceOf(account2)
 
-await transferFunds( account2, '50')
+await transferFunds( account2, '5000000000000000000')
 
 }
 
