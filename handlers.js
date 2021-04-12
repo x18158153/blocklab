@@ -17,5 +17,9 @@ app.get('/supply', async (req, res) => {
     res.send(await erc20.getTotalSupply())
 })
 
+app.get('/transfer', async (req, res) => {
+    res.send(await erc20.transfer())
+})
+
 const port = 8082
 app.listen(port, () => console.log ( `listening on port ${port}...`))
