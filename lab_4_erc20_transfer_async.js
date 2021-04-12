@@ -294,7 +294,7 @@ const transferFunds = async( account2, amount)=> {
     const txObject = {
         nonce: web3.utils.toHex(txCount),
         gasLimit: web3.utils.toHex(500000),
-        gasPrice: web3.utils.toHex(web3.utils.toWei('130', 'gwei')),
+        gasPrice: web3.utils.toHex(web3.utils.toWei('100', 'gwei')),
         to: contractAddress,
         data: contract.methods.transfer( account2, amount). encodeABI()
     }
@@ -317,8 +317,27 @@ const getBalanceOf = async(account) => {
     let balanceOf = await contract.methods.balanceOf(account).call()
     return  balanceOf
 }
+
+const getSymbol = async() => {
+	let symbol = await contract.methods.symbol().call()
+	return symbol
+}
+
+const getTotalSupply = async () => {
+	let totalSupply = await contract.methods.totalSupply().call()
+	return totalSupply
+
+}
+
 const transfer = async() => {
-  await getBalanceOf(account1)
+  accountbal1 = await getBalanceOf(account1)
+  console.log("account 1 balance is : " + accountbal1)
+
+  symbol =await getSymbol()
+  console.log('symbol of erc20 contract is: ' + symbol)
+
+  supply = await getTotalSupply()
+  console.log('total suppply of '  + symbol + " is : " + supply)
   await getBalanceOf(account2)
 
 await transferFunds( account2, '5000000000000000000')
