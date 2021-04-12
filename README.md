@@ -16,6 +16,10 @@ To install the dependencies, make sure you are in the nci2021 folder and run:
 
 ### Web Server ###
 
-we' re using express
+we' re using express (handlers.js)
 
-```npm install express```
+To access the routes using curl:
+
+```curl --get 'http://localhost:8082/transfer```
+
+
