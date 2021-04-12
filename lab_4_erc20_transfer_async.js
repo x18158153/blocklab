@@ -346,4 +346,4 @@ await transferFunds( account2, '5000000000000000000')
 
 //transfer()
 
-module.exports = { getSymbol, getTotalSupply }
+module.exports = { getSymbol, getTotalSupply, transfer }
