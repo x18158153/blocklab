@@ -1,7 +1,7 @@
 var sodium = require('sodium-native')
 
-//ECDH
-//x25519
+// ECDH
+// ed25519 (sign verify) ->  x25519 (ecdh) -> secret -> encrupt traffic with secret
 
 
 //Create Alice keypair
