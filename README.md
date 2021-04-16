@@ -42,18 +42,31 @@ To buil the docker container:
 
 #### Interact with it 
 
-View the image in docker
-```docker image ls` `
+View docker Images
 
-To remove all docker container etc. ( if something goes wrong)
+```docker image ls```
+
+**Remove all docker container etc.**
+
+ Do this if something goes wrong(it will refresh all your containier to a knowno default state)
+
 ```docker system prune```
 
-To remove docker images
-```docker image prune -a -f```
+**Remove docker images** :  ```docker image prune -a -f```
 
-View running docker containers
-```docker ps```
+**View running docker containers** : ```docker ps```
 
-Run the image in docker
+**Run the image in docker** :
+```docker run -p 41960:8082 --name abe -d abe/blocklab```
+
+**Kill running container** : ```docker kill <name>```
+
+**Kill running container(2)** :
+```docker kill <CONTAINER_ID>```
+
+**Stop a running container** :  ```docker stop <name>```
+
+**Start a running container** : 
+```docker start <name>```
 
 ####
