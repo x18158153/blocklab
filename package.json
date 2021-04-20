@@ -4,6 +4,7 @@
   "description": "to download this code, run",
   "main": "lab4_transaction_asyn.js",
   "dependencies": {
+    "big-number": "^2.0.0",
     "ethereumjs-tx": "^2.1.2",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
