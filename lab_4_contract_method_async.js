@@ -317,7 +317,7 @@ const returnValues = async() => {
 	console.log('Luiz has: %s %s ',await getBalanceOf('0xED412a4BdE84C64eF2c0854a77858A53161911f7'), symbol)
 }
 
-module.exports = { getOwnerBalance, getBalance }
-returnValues()
+module.exports = {  getBalance }
+//returnValues()
 
 

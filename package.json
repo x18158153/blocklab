@@ -6,6 +6,7 @@
   "dependencies": {
     "ethereumjs-tx": "^2.1.2",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "i": "^0.3.6",
     "node": "^15.10.0",
     "sodium-native": "^3.2.1",

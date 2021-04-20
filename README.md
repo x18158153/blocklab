@@ -64,9 +64,10 @@ View docker Images
 **Kill running container(2)** :
 ```docker kill <CONTAINER_ID>```
 
-**Stop a running container** :  ```docker stop <name>```
+**Stop a running container**    ```docker stop <name>```
 
-**Start a running container** : 
-```docker start <name>```
+**Start a running container** :   ```docker start <name>```
+
+**View the logs of a container**:     ```docker logs -f <name>```
 
 ####

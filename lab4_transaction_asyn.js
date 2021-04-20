@@ -64,4 +64,4 @@ await transferFunds(account1, account2, '0.123')
 
 }
 
-transfer()
+//transfer()
