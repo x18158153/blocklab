@@ -288,6 +288,19 @@ const getBalanceOf = async(owner) => {
     return balanceOf
 }
 
+const getOwnerBalance = async() => {
+	let balanceOf = await contract.methods.balanceOf(owner).call()
+	return balanceOf
+}
+
+const getBalance = async(contractAddress, account) => {
+	// set up the contract object using the contract address
+	// take the account and call the balance method
+	const contract = new web3.eth.Contract(abi, contractAddress)
+	let balanceOf = await contract.methods.balanceOf(account).call()
+	return balanceOf
+} 
+
 const getTotalSupply = async() => {
     let totalSupply =await contract.methods.totalSupply().call()
     return totalSupply
@@ -304,6 +317,7 @@ const returnValues = async() => {
 	console.log('Luiz has: %s %s ',await getBalanceOf('0xED412a4BdE84C64eF2c0854a77858A53161911f7'), symbol)
 }
 
+module.exports = { getOwnerBalance, getBalance }
 returnValues()
 
 
