@@ -314,7 +314,7 @@ const returnValues = async() => {
     console.log('decimal are  ' + await getDecimal())
     console.log('balance of ' + owner + ' is: ' + await getBalanceOf(owner))
     console.log('total supply of %s is %s', symbol, await getTotalSupply())
-	console.log('Luiz has: %s %s ',await getBalanceOf('0xED412a4BdE84C64eF2c0854a77858A53161911f7'), symbol)
+	//console.log('Luiz has: %s %s ',await getBalanceOf('0xED412a4BdE84C64eF2c0854a77858A53161911f7'), symbol)
 }
 
 module.exports = {  getBalance }

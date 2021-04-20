@@ -4,10 +4,14 @@ const Web3 = require ('web3')
 
 const web3 = new Web3("https://ropsten.infura.io/v3/de9990cb56cd42e2a479a47ec959f9e0")
 
-const account1= "0xB2Ee3F22D6AeFF1a870aAda0750474C070111C13" // this is the address of account 1 this guy has all the MONEH
-const account2="0x9e9F33ffd218C245cCc5CD45cdd6ffFb87414dC9"  // this is the address of account 2 this guy has little MONEH
-
+const account1= "0xB2Ee3F22D6AeFF1a870aAda0750474C070111C13" // this is the address of account 1 this guy has all the ABE
 const privateKey1 = Buffer.from('d0b7a9cc48a6b8d04c735a0d2558b31703a7500c9bd5fc6513c8591f78671640', 'hex')
+
+
+
+
+const account2="0x9e9F33ffd218C245cCc5CD45cdd6ffFb87414dC9"  // this is the address of account 2 this guy has little ABE
+
 
 
 // algorithm secp256K1 (eliptic curve -256bits)
@@ -344,6 +348,36 @@ await transferFunds( account2, '50000000000000000000')
 
 }
 
-//transfer()
+const transferFromOwner = async(contractAddress, toAccount, amount) => {
+	//get an instance of the contract
+	const contract = new web3.eth.Contract(contractABI, contractAddress)
+	
+	//run a transfer from owner to account of amount  
+	let txCount = await web3.eth.getTransactionCount(account1)
+	
+	console.log(`nonce for owner account (${account1}) is : ${txCount}`)
+	
+		//create a transaction object
+	const txObject = {
+		nonce: web3.utils.toHex(txCount),
+		gasLimit: web3.utils.toHex(500000),
+		gasPrice: web3.utils.toHex(web3.utils.toWei('100', 'gwei')),
+		to: contractAddress,
+		data: contract.methods.transfer( toAccount, amount). encodeABI()
+	}
+	
+	const tx = new Tx(txObject, {chain:'ropsten', hardfork:'petersburg'})
+	tx.sign(privateKey1)
+	
+	const serializedTx =tx.serialize()
+	const raw = '0x' + serializedTx.toString('hex')
+	let txHash = await sendTransaction(raw)
+	console.log("transaction hash: " +txHash.transactionHash)
+	console.log("transaction in block " + txHash.blockNumber)
+	return `transaction ${txHash.transactionHash} mined in block ${txHash.blockNumber}`
+	
+	}
+  
+	//transfer()
 
-module.exports = { getSymbol, getTotalSupply, transfer }
+module.exports = { getSymbol, getTotalSupply, transfer, transferFromOwner }
