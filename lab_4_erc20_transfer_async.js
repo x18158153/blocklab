@@ -16,7 +16,7 @@ const privateKey1 = Buffer.from('d0b7a9cc48a6b8d04c735a0d2558b31703a7500c9bd5fc6
 //using a mecanisim taking 128 randomness and making  derivation path : m’/44’/60’/0’/0/0 -> make the same public/private keypair
 //Ethereum takes the public key -> hashed/choooed -> eth address
 
-const contractAddress = '0xDE236E3aD8b8BCC7E0aB88A10CBE8a8Eb44fb09d'
+const contractAddress = '0xF8e9AD434dFC24e46B8B97718eF6b95c0229621B'
 const contractABI =[
 	{
 		"inputs": [],
@@ -302,8 +302,8 @@ const transferFunds = async( account2, amount)=> {
     const tx = new Tx(txObject, {chain:'ropsten', hardfork:'petersburg'})
     tx.sign(privateKey1)
 
-    const serializedTX =tx.serialize()
-    const raw = '0x' + serializedTX.toString('hex')
+    const serializedTx =tx.serialize()
+    const raw = '0x' + serializedTx.toString('hex')
     let txHash = await sendTransaction(raw)
     console.log('original object: ' + txHash)
     //console.log("err: " + txHash.err)
@@ -337,13 +337,13 @@ const transfer = async() => {
   console.log('symbol of erc20 contract is: ' + symbol)
 
   supply = await getTotalSupply()
-  console.log('total suppply of '  + symbol + " is : " + supply)
+  console.log('total supply of '  + symbol + " is : " + supply)
   await getBalanceOf(account2)
 
-await transferFunds( account2, '5000000000000000000')
+await transferFunds( account2, '50000000000000000000')
 
 }
 
-//transfer()
+transfer()
 
 module.exports = { getSymbol, getTotalSupply, transfer }
