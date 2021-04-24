@@ -6,7 +6,6 @@ let contract = require("./lab_4_contract_method_async")
 let transfer = require("./lab_4_erc20_transfer_async")
 
 require('dotenv').config()
-
 envOwnerAddress = process.env.OWNER_ADDRESS
 envOwnerPrivateKey = process.env.OWNER_PRIVATE_KEY
 envInfuraKey = process.env.INFURA_KEY
@@ -55,8 +54,9 @@ for (looper = 0; looper < distributionAddresses.length; looper++) {
  //   console.log(`address ${looper}: ${distributionAddresses[looper]}`)
 }
 }
+module.exports = {  distribute }
 
-distribute()
+//distribute()
 
 // tasks
 
