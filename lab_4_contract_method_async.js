@@ -1,6 +1,12 @@
 const Web3 = require('web3')
 
-const rpcURL =  "https://ropsten.infura.io/v3/de9990cb56cd42e2a479a47ec959f9e0"
+require('dotenv').config()
+envOwnerAddress = process.env.OWNER_ADDRESS
+envOwnerPrivateKey = process.env.OWNER_PRIVATE_KEY
+envInfuraKey = process.env.INFURA_KEY
+envContractAddress = process.env.CONTRACT_ADDRESS
+
+const rpcURL =  "https://ropsten.infura.io/v3/"+ envInfuraKey
 
 const web3 = new Web3(rpcURL)
 
@@ -261,10 +267,10 @@ const abi= [
 ]
 
 //this is your contract address
-const address = "0xF8e9AD434dFC24e46B8B97718eF6b95c0229621B" 
+const address = envContractAddress 
 
 //this is the contract owner
-const owner = "0xB2Ee3F22D6AeFF1a870aAda0750474C070111C13"
+const owner = envOwnerAddress
 
 const contract = new web3.eth.Contract(abi, address)
 

@@ -1,11 +1,16 @@
 const Tx = require('ethereumjs-tx').Transaction
-
 const Web3 = require ('web3')
 
-const web3 = new Web3("https://ropsten.infura.io/v3/de9990cb56cd42e2a479a47ec959f9e0")
+require('dotenv').config()
+envOwnerAddress = process.env.OWNER_ADDRESS
+envOwnerPrivateKey = process.env.OWNER_PRIVATE_KEY
+envInfuraKey = process.env.INFURA_KEY
+envContractAddress = process.env.CONTRACT_ADDRESS
 
-const account1= "0xB2Ee3F22D6AeFF1a870aAda0750474C070111C13" // this is the address of account 1 this guy has all the ABE
-const privateKey1 = Buffer.from('d0b7a9cc48a6b8d04c735a0d2558b31703a7500c9bd5fc6513c8591f78671640', 'hex')
+const web3 = new Web3("https://ropsten.infura.io/v3/" + envInfuraKey)
+
+const account1= envOwnerAddress // this is the address of account 1 this guy has all the ABE
+const privateKey1 = Buffer.from(envOwnerPrivateKey, 'hex')
 
 
 
@@ -20,7 +25,7 @@ const account2="0x9e9F33ffd218C245cCc5CD45cdd6ffFb87414dC9"  // this is the addr
 //using a mecanisim taking 128 randomness and making  derivation path : m’/44’/60’/0’/0/0 -> make the same public/private keypair
 //Ethereum takes the public key -> hashed/choooed -> eth address
 
-const contractAddress = '0xF8e9AD434dFC24e46B8B97718eF6b95c0229621B'
+const contractAddress = envContractAddress
 const contractABI =[
 	{
 		"inputs": [],
