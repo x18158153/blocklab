@@ -5,6 +5,13 @@ var BigNumber = require("big-number")
 let contract = require("./lab_4_contract_method_async")
 let transfer = require("./lab_4_erc20_transfer_async")
 
+require('dotenv').config()
+
+envOwnerAddress = process.env.OWNER_ADDRESS
+envOwnerPrivateKey = process.env.OWNER_PRIVATE_KEY
+envInfuraKey = process.env.INFURA_KEY
+envContractAddress = process.env.CONTRACT_ADDRESS
+
 const distribute = async() => {
     //read to the file into array 
 let distributionAddresses = fs.readFileSync('accounts.txt', 'utf8').split('\n');
