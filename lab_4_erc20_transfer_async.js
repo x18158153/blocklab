@@ -13,8 +13,6 @@ const account1= envOwnerAddress // this is the address of account 1 this guy has
 const privateKey1 = Buffer.from(envOwnerPrivateKey, 'hex')
 
 
-
-
 const account2="0x9e9F33ffd218C245cCc5CD45cdd6ffFb87414dC9"  // this is the address of account 2 this guy has little ABE
 
 

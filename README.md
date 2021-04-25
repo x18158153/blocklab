@@ -10,7 +10,7 @@ I have performed this implementation as part of the project for the module Block
 
 To download this code, run 
 
-    git clone https://github.com/x20157576/nciblockchain.git
+    git clone https://github.com/x18158153/blocklab.git
 
 This will create a folder called blocklab and the code will be downloaded to that folder.
 
@@ -60,6 +60,10 @@ Distribute 5% of the remaining tokens in the owner account evenly amongst a list
 
 To run a docker container , you need to do the following steps:
 
+**Prevent Docker from storing the .env file:** ( I have performed this steps with ubuntu OS)
+
+    echo ".env" > .dockerignore
+
 ### Build it ###
 
     docker build -t  abe/blocklab .
@@ -93,11 +97,13 @@ To run a docker container , you need to do the following steps:
 
 **Run the image in docker**: 
 
-    docker run -p 41960:8082 --name abe -d abe/blocklab
+***(note the  --env bring the .env file*)**
+
+    docker run --env-file=.env -p 8080:8080 --name abeub -d abe/blocklab
 
 **Kill a running container**: 
 
-    docker kill abe  
+    docker kill abeub  
 
 **Kill a running container(2)**: 
 
@@ -105,23 +111,20 @@ To run a docker container , you need to do the following steps:
 
 **Stop a running container**: 
 
-    docker stop abe
+    docker stop abeub
 
 **Start a running container**: 
 
-    docker start abe
+    docker start abeub
 
 **View the logs of a container**: 
 
-    docker logs abe
+    docker logs abeub
 
 **View the running logs inside a container**: 
 
     docker logs -f <container id>
 
-**Enter the docker image bash terminal**: 
-
-    docker -t exec abe
 
 ## Getting ready to push the image to Dockerhub ##
 
@@ -131,8 +134,8 @@ To run a docker container , you need to do the following steps:
 
 **Tag image ready for push to dockerhub**: 
 
-    docker tag nciblockchain:latest ceebish/nciblockchain
+    docker tag abeubuntu:latest 19780310/x18158153/blocklab
 
 **Push to dockerhub**: 
 
-    docker push ceebish/nciblockchain
+     docker push abeubuntu:latest
