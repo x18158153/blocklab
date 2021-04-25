@@ -66,7 +66,7 @@ To run a docker container , you need to do the following steps:
 
 ### Build it ###
 
-    docker build -t  abe/blocklab .
+    docker build -t  abeubuntu .
 
 #### Run it
 
@@ -99,7 +99,7 @@ To run a docker container , you need to do the following steps:
 
 ***(note the  --env bring the .env file*)**
 
-    docker run --env-file=.env -p 8080:8080 --name abeub -d abe/blocklab
+    docker run --env-file=.env -p 8080:8080 --name abeub -d abeubuntu
 
 **Kill a running container**: 
 
@@ -128,14 +128,17 @@ To run a docker container , you need to do the following steps:
 
 ## Getting ready to push the image to Dockerhub ##
 
+I am storing the image created in docker to **19780310/blocklab** in dockerdub
+
 **Log in to Dockerhub**: 
+
 
     docker login --username=<username>
 
 **Tag image ready for push to dockerhub**: 
 
-    docker tag abeubuntu:latest 19780310/x18158153/blocklab
+    docker tag abeubuntu:latest 19780310/blocklab
 
 **Push to dockerhub**: 
 
-     docker push abeubuntu:latest
+     docker push 19780310/blocklab
