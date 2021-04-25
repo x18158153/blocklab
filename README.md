@@ -74,7 +74,7 @@ To run a docker container , you need to do the following steps:
 
 **View docker images:** 
 
-    docker images ls
+    docker images 
 
 **Remove all docker containers etc.**
 
