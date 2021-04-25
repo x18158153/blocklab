@@ -21,7 +21,7 @@ for (looper = 0; looper < distributionAddresses.length; looper++) {
   }
 
 //get the balance of the token owner
-var ownerBalance = await contract.getBalance(envContractAddress,envOwnerAddress )
+let ownerBalance = await contract.getBalance(envContractAddress,envOwnerAddress )
 console.log(`owner balance is ${ownerBalance}`)
 
 //get 5% of owner's balance
@@ -48,7 +48,7 @@ console.log(`amount to distribute per address: ${distributionAmount}`)
 for (looper = 0; looper < distributionAddresses.length; looper++) {
     let distributionAddress = distributionAddresses[looper].replace("\r","");
     let mined = await transfer.transferFromOwner(envContractAddress, distributionAddress, distributionAmount).catch(console.log)
-    //let mined = await transfer.transferFromOwner("0xF8e9AD434dFC24e46B8B97718eF6b95c0229621B", distributionAddresses[looper], distributionAmount)
+    //let mined = await transfer.transferFromOwner(envContractAddress, distributionAddresses[looper], distributionAmount)
     console.log(`mined: ${mined}`)
      // }
  //   console.log(`address ${looper}: ${distributionAddresses[looper]}`)

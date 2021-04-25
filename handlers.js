@@ -6,10 +6,6 @@ const app = express()
 
 app.use(express.json())
 
-//GET - read
-//POST - create a new vaule
-//PUT - update a value
-//DELETE - remove a value
 
 app.get('/symbol', async (req, res) => {
     res.send(await erc20.getSymbol())

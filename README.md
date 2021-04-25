@@ -1,73 +1,138 @@
-hey, this is the readme.md file
+
+#  Blockchain CA Project/ Student x18158153 NCI #
+
+## Test of blockchain using 'ABE' token ##
+
+I have performed this implementation as part of the project for the module Blockchain concepts of the course Postgrare Diploma in Science in Cloud Computing  .
 
 
-### Downloading the Code ###
+## Downloading the Code ##
 
 To download this code, run 
 
-```$git clone https://github.com/eoinco/nci2021.git```
+    git clone https://github.com/x20157576/nciblockchain.git
 
-This will create a folder called nci2021 and the code will be downloaded to that folder.
+This will create a folder called blocklab and the code will be downloaded to that folder.
 
-To install the dependencies, make sure you are in the nci2021 folder and run:
+To install the dependencies, make sure you are in the blocklab folder and run:
 
-```$npm install```
+     npm install
 
+once the code is donwloaded create .env file with the following attributed:
 
-### Web Server ###
+    INFURA_KEY= key from Infura account 
+    OWNER_ADDRESS= addresss of the contract owner 
+    OWNER_PRIVATE_KEY= private key for the owner account
+    CONTRACT_ADDRESS= address for the contract
 
-we' re using express (handlers.js)
+## Web Server ##
+
+we are using express (handlers.js)
+
+run the following:
+
+    node handlers.js
+
+### Interact with the Web Server ###
 
 To access the routes using curl:
 
-```curl --get 'http://localhost:8082/transfer```
+Get token symbol 
 
--dockerise the project
--loada file of accounts
--run the distribution
--run distro via handler
-do some fun crypto
+    curl -get 'http://localhost:8082/symbol'
+
+Get the token total supply 
+
+    curl -get 'http://localhost:8082/supply'
+
+Trigger a transfer to a 10 accounts of a  text file  
+
+    curl -get 'http://localhost:8082/transfer'
+
+Distribute 5% of the remaining tokens in the owner account evenly amongst a list of supplied accounts. The list of accounts is passed from a text file:
+
+    curl -XPOST http://localhost:8082/distribute
 
 
-### Docker Containers
+## Docker Containers ##
+
+**reference  ```https://docs.docker.com/get-started/```**
 
 To run a docker container , you need to do the following steps:
 
-#### Build it
-To buil the docker container:
+### Build it ###
 
-```docker build -t  abe/blocklab .```
+    docker build -t  abe/blocklab .
 
 #### Run it
 
-#### Interact with it 
+## Interact with docker ##
 
-View docker Images
+**View docker images:** 
 
-```docker image ls```
+    docker images ls
 
-**Remove all docker container etc.**
+**Remove all docker containers etc.**
 
- Do this if something goes wrong(it will refresh all your containier to a knowno default state)
+***Do this if something goes wrong (it will refresh all your containers to a known default state)***
 
-```docker system prune```
+    docker system prune
 
-**Remove docker images** :  ```docker image prune -a -f```
+**Remove docker images**
+    
+    docker image prune -a -f
 
-**View running docker containers** : ```docker ps```
+**View running docker containers**: 
+    
+    docker ps
 
-**Run the image in docker** :
-```docker run -p 41960:8082 --name abe -d abe/blocklab```
+``` or ```
+    
+    docker ps -a
 
-**Kill running container** : ```docker kill <name>```
 
-**Kill running container(2)** :
-```docker kill <CONTAINER_ID>```
+**Run the image in docker**: 
 
-**Stop a running container**    ```docker stop <name>```
+    docker run -p 41960:8082 --name abe -d abe/blocklab
 
-**Start a running container** :   ```docker start <name>```
+**Kill a running container**: 
 
-**View the logs of a container**:     ```docker logs -f <name>```
+    docker kill abe  
 
-####
+**Kill a running container(2)**: 
+
+    docker kill <CONTAINER_ID>
+
+**Stop a running container**: 
+
+    docker stop abe
+
+**Start a running container**: 
+
+    docker start abe
+
+**View the logs of a container**: 
+
+    docker logs abe
+
+**View the running logs inside a container**: 
+
+    docker logs -f <container id>
+
+**Enter the docker image bash terminal**: 
+
+    docker -t exec abe
+
+## Getting ready to push the image to Dockerhub ##
+
+**Log in to Dockerhub**: 
+
+    docker login --username=<username>
+
+**Tag image ready for push to dockerhub**: 
+
+    docker tag nciblockchain:latest ceebish/nciblockchain
+
+**Push to dockerhub**: 
+
+    docker push ceebish/nciblockchain
